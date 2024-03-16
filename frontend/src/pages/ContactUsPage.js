@@ -7,7 +7,7 @@ import AppAppBar from '../components/shared/AppAppBar'
 function ContactUsPage() {
   return (
    <>
-   <Header title="Sign Up" link="/sign-up"/>
+   <Header isAuthenticated="false" title="Sign Up" link="/sign-up"/>
    <ContactUs/>
    </>
   )

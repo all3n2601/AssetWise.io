@@ -146,8 +146,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                 variant="text"
                 size="small"
                 component="a"
-                href="/material-ui/getting-started/templates/sign-in/"
-                target="_blank"
+                href="/sign-in"
               >
                 Sign in
               </Button>
@@ -156,8 +155,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                 variant="contained"
                 size="small"
                 component="a"
-                href="/material-ui/getting-started/templates/sign-up/"
-                target="_blank"
+                href="/sign-up"
               >
                 Sign up
               </Button>
@@ -215,8 +213,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                       color="primary"
                       variant="contained"
                       component="a"
-                      href="/material-ui/getting-started/templates/sign-up/"
-                      target="_blank"
+                      href="/sign-up"
                       sx={{ width: "100%" }}
                     >
                       Sign up
@@ -227,8 +224,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                       color="primary"
                       variant="outlined"
                       component="a"
-                      href="/material-ui/getting-started/templates/sign-in/"
-                      target="_blank"
+                      href="/sign-in"
                       sx={{ width: "100%" }}
                     >
                       Sign in

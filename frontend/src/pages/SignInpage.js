@@ -6,7 +6,7 @@ import AppAppBar from "../components/shared/AppAppBar";
 function SignInPage() {
   return (
     <>
-      <Header title="Sign Up" link="/sign-up"/>
+      <Header isAuthenticated="false" title="Sign Up" link="/sign-up"/>
       <SignIn />
     </>
   );

@@ -6,7 +6,7 @@ function AboutUsPage() {
   return (
 
     <>
-     <Header  title="Sign Up" link="/sign-up"/>
+     <Header isAuthenticated="false"  title="Sign Up" link="/sign-up"/>
      <AboutUs/>
      
      </>
