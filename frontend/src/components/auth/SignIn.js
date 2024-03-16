@@ -1,17 +1,40 @@
 import React from "react";
 import jar from "../../assets/asset.jpeg";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 function SignIn() {
+  const [data, setData] = React.useState({
+    email: "",
+    password: "",
+  });
+  const navigate = useNavigate();
 
-  const navigate =useNavigate();
-
-  const handleSignIn=()=>{
-
-    navigate("/user-dashboard")
-
-  }
-
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:4451/api/users/login", data)
+      .then((res) => {
+        if (res.status === 200) {
+          Swal.fire({
+            title: "Login Successful!",
+            icon: "success",
+            confirmButtonText: "Ok",
+            text: "You have successfully logged in!",
+          });
+          navigate("/user-dashboard");
+        }
+      })
+      .catch((err) => {
+        Swal.fire({
+          title: "Invalid Credentials!",
+          icon: "error",
+          confirmButtonText: "Ok",
+          text: "Please Check Your Credentials and Try Again!",
+        });
+      });
+  };
 
   return (
     <div className="py-[10%] h-[70%] bg-gray-100 text-gray-900 flex justify-center">
@@ -54,16 +77,25 @@ function SignIn() {
 
               <div className="mx-auto max-w-xs">
                 <input
+                  onChange={(e) => setData({ ...data, email: e.target.value })}
                   className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                   type="email"
                   placeholder="Email"
+                  value={data.email}
                 />
                 <input
+                  onChange={(e) =>
+                    setData({ ...data, password: e.target.value })
+                  }
                   className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                   type="password"
                   placeholder="Password"
+                  value={data.password}
                 />
-                <button  onClick={handleSignIn} className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                <button
+                  onClick={handleSignIn}
+                  className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
+                >
                   <svg
                     className="w-6 h-6 -ml-2"
                     fill="none"
@@ -86,7 +118,6 @@ function SignIn() {
                   >
                     Sign Up
                   </a>
-
                 </p>
               </div>
             </div>
@@ -96,7 +127,7 @@ function SignIn() {
           <div
             className="m-12 xl:m-16 h-[80%] w-full bg-contain bg-center bg-no-repeat"
             style={{
-                backgroundImage: `url(${jar})`,
+              backgroundImage: `url(${jar})`,
             }}
           ></div>
         </div>

@@ -1,8 +1,21 @@
 import React, { useState } from "react";
-import * as XLSX from "xlsx";
+import * as XLSX from "xlsx"
+import Sidebar, { SidebarItem } from "./components/SideBar";
+import {
+  LayoutDashboard,
+  Home,
+  StickyNote,
+  Layers,
+  Flag,
+  Calendar,
+  LifeBuoy,
+  Settings,
+} from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const FileUploader = () => {
   const [cellData, setCellData] = useState([]);
+  const navigate = useNavigate();
 
   const handleFileUpload = () => {
     document.getElementById("fileInput").click();
@@ -76,18 +89,70 @@ const FileUploader = () => {
   };
 
   return (
-    <div div className="p-4">
-      <input
-        type="file"
-        accept=".xlsx"
-        onChange={handleSelectedFile}
-        style={{ display: "none" }}
-        id="fileInput"
-      />
-      <button onClick={handleFileUpload}>Select File</button>
+    <div className="fixed h-[100%] w-[100%] flex overflow-hidden bg-white">
+      <Sidebar>
+        <SidebarItem
+          icon={<Home size={20} />}
+          text="Home"
+          alert
+          onClick={() => {
+            navigate("/");
+          }}
+        />
+        <SidebarItem
+          icon={<LayoutDashboard size={20} />}
+          text="Dashboard"
+          onClick={() => {
+            navigate("/user-dashboard");
+          }}
+        />
+        <SidebarItem
+          icon={<StickyNote size={20} />}
+          text="Investments"
+          alert
+          onClick={() => {
+            navigate("/user-investments");
+          }}
+        />
+        <SidebarItem
+          icon={<Calendar size={20} />}
+          text="Assets"
+          onClick={() => {
+            navigate("/user-assets");
+          }}
+        />
+        <SidebarItem
+          icon={<Layers size={20} />}
+          text="Tools"
+          onClick={() => {
+            navigate("/user-tools");
+          }}
+        />
+        <SidebarItem
+          icon={<Flag size={20} />}
+          text="Data Upload"
+          active
+          onClick={() => {
+            navigate("/user-data");
+          }}
+        />
+        <hr className="my-3" />
+        <SidebarItem icon={<Settings size={20} />} text="Settings" />
+        <SidebarItem icon={<LifeBuoy size={20} />} text="Help Center" />
+      </Sidebar>
+      <div div className="p-4">
+        <input
+          type="file"
+          accept=".xlsx"
+          onChange={handleSelectedFile}
+          style={{ display: "none" }}
+          id="fileInput"
+        />
+        <button onClick={handleFileUpload}>Select File</button>
 
-      <div className="mt-4">
-        <CellDataList cellData={cellData} />
+        <div className="mt-4">
+          <CellDataList cellData={cellData} />
+        </div>
       </div>
     </div>
   );

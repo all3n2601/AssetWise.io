@@ -1,6 +1,35 @@
 import React from 'react'
 import jar from "../../assets/asset.jpeg";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { useState } from "react";
+
 function SignUp() {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:4451/api/users/register", data)
+      .then((res) => {
+        if (res.status === 200) {
+          navigate("/sign-in");
+        }
+      })
+      .catch((err) => {
+        Swal.fire({
+          title: "Error",
+          icon: "error",
+          text: err,
+          button: "Ok",
+        });
+      });
+  };
   return (
     <div className="py-[10%] h-[80%] min-h-screen bg-gray-100 text-gray-900 flex justify-center">
       <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
@@ -43,16 +72,20 @@ function SignUp() {
 
               <div className="mx-auto max-w-xs">
                 <input
+                onChange={(e) => setData({ ...data, email: e.target.value })}
                   className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                   type="email"
                   placeholder="Email"
+                  value={data.email}
                 />
                 <input
+                onChange={(e) => setData({ ...data, password: e.target.value })}
                   className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                   type="password"
                   placeholder="Password"
+                  value={data.password}
                 />
-                <button className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                <button onClick={handleSubmit} className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                   <svg
                     className="w-6 h-6 -ml-2"
                     fill="none"

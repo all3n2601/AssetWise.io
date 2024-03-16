@@ -29,7 +29,7 @@ const registerUser = asyncHandler(async (req, res) => {
     });
   }
 
-  res.json({ message: "New User created" });
+  res.status(200).json({ message: "New User created" });
 });
 
 const loginUser = asyncHandler(async (req, res) => {

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { PureComponent } from 'react';
+import { PieChart, Pie, Sector, ResponsiveContainer } from 'recharts';
 import Sidebar, { SidebarItem } from "./components/SideBar";
 import {
   LayoutDashboard,

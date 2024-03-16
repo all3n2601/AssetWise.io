@@ -24,6 +24,7 @@ import {
 } from "recharts";
 
 export default function UserDashboard() {
+  
   const navigate = useNavigate();
 
   const data = [

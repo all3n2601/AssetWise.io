@@ -8,6 +8,7 @@ import UserDashboardPage from "./pages/UserDashboardPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import RetirementCalculator from "./components/client/RetirementCalculator";
 import UserInvestmentPage from "./pages/UserInvestmentPage";
+import UserDataPage from "./pages/UserDataPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/user-investments" element={<UserInvestmentPage/>} />
         <Route path="/user-assets" element={<SignUpPage/>} />
         <Route path="/user-tools" element={<RetirementCalculator/>} />
+        <Route path="/user-data" element={<UserDataPage/>} />
 
       </Routes>
     </Router>
