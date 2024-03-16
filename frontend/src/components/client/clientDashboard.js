@@ -17,10 +17,7 @@ export default function MainDashboardPage() {
     <>
       <Helmet>
         <title>Rahul palanivel </title>
-        <meta
-          name="description"
-          content="Web site created using create-react-app"
-        />
+        <meta />
       </Helmet>
       <div className="flex flex-row md:flex-col justify-center items-start w-full pb-[30px] md:gap-5 sm:pb-5 bg-gray-100">
         <Sidebar
