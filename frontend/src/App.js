@@ -7,6 +7,7 @@ import ContactUsPage from "./pages/ContactUsPage";
 import UserDashboardPage from "./pages/UserDashboardPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import RetirementCalculator from "./components/client/RetirementCalculator";
+import UserInvestmentPage from "./pages/UserInvestmentPage";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <Route path="/sign-up" element={<SignUpPage/>} />
 
         <Route path="/user-dashboard" element={<UserDashboardPage/>} />
-        <Route path="/user-investments" element={<SignUpPage/>} />
+        <Route path="/user-investments" element={<UserInvestmentPage/>} />
         <Route path="/user-assets" element={<SignUpPage/>} />
         <Route path="/user-tools" element={<RetirementCalculator/>} />
 
