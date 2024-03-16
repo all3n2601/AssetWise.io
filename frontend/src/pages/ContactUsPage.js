@@ -1,11 +1,13 @@
 import React from 'react'
 import ContactUs from '../components/shared/Contact'
 import Header from '../components/shared/Header'
+import App from '../App'
+import AppAppBar from '../components/shared/AppAppBar'
 
 function ContactUsPage() {
   return (
    <>
-   <Header title="Sign In" link="/sign-in"/>
+   <Header title="Sign Up" link="/sign-up"/>
    <ContactUs/>
    </>
   )
