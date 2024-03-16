@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "../../assets/Black Logo.png";
 import jar from "../../assets/asset.jpeg";
 
 function SignIn() {

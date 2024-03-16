@@ -5,7 +5,6 @@ import Header from '../components/shared/Header'
 function HomePage() {
   return (
    <>
-   <Header title="Sign Up" link="/sign-up"/>
    <Home/>
 
    </>
