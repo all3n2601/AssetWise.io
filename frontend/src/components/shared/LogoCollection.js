@@ -16,21 +16,21 @@ const items = [
     description:
       "With lots of unique charts and graphs, you can easily visualize and understand the analytics of your financial spendings.",
     Image: Dash,
-    color: red,
+    color: red[400],
   },
   {
     title: "Assets Managment",
     description:
       "Purchase manage and maintain all of your assets one stop with the help of our managment tools",
     Image: Amtool,
-    color: blue,
+    color: blue[400],
   },
   {
     title: "Financial Tools",
     description:
       "We offer various financial tools to simplify and maintain your financial records such as Goal setting, Debt management and retirement planning",
     Image: tool,
-    color: green,
+    color: green[400],
   },
 ];
 
@@ -46,8 +46,8 @@ export default function Highlights() {
       sx={{
         pt: { xs: 4, sm: 12 },
         pb: { xs: 8, sm: 16 },
-        color: "white",
-        bgcolor: "#06090a",
+        color: "black",
+        bgcolor: "white",
       }}
     >
       <Container
@@ -88,7 +88,8 @@ export default function Highlights() {
                   border: "1px solid",
                   borderColor: "grey.800",
                   background: "transparent",
-                  backgroundColor: "grey.900",
+                  backgroundColor: item.color,
+                  borderRadius:6
                 }}
               >
                 <Box sx={{ opacity: "100%" }}>
@@ -102,7 +103,7 @@ export default function Highlights() {
                   <Typography fontWeight="medium" gutterBottom>
                     {item.title}
                   </Typography>
-                  <Typography variant="body2" sx={{ color: "grey.400" }}>
+                  <Typography variant="body2" sx={{ color: "white" }}>
                     {item.description}
                   </Typography>
                 </div>

@@ -7,7 +7,7 @@ function RetirementCalculator() {
       <Header isAuthenticated="true" title="Profile" link="/user-dashboard" />
       <aside
         id="default-sidebar"
-        class="fixed py-20 top-0 left-0 z-40 w-64 h-[100%] transition-transform -translate-x-full sm:translate-x-0"
+        class="fixed pt-20 top-0 left-0 z-40 w-64 h-[100%] transition-transform -translate-x-full sm:translate-x-0"
         aria-label="Sidebar"
       >
         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
