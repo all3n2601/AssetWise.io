@@ -26,7 +26,8 @@
     "recharts": "^2.12.3",
     "simplebar-react": "^3.2.4",
     "sweetalert2": "^11.10.6",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "xlsx": "^0.18.5"
   },
   "scripts": {
     "start": "react-scripts start",
